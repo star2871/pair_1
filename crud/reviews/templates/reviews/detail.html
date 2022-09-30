@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>영화 리뷰</h1>
+<h2>{{ review.title }}</h2>
+<h2>{{ review.content }}</h2>
+<h2>{{ review.created_at }}</h2>
+<a href="{% url 'reviews:edit' review.pk %}">
+  <input type="submit" class="btn btn-success" value="변경">
+</a>
+<a href="{% url 'reviews:delete' review.pk %}">
+  <input type="submit" class="btn btn-danger" value="삭제">
+</a>
+{% endblock %}

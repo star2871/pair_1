@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+   <a href="{% url 'reviews:new' %}"><button type="button" class="btn btn-secondary">영화리뷰작성</button></a>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr class="text">
+          <th scope="col">리뷰번호</th>
+          <th scope="col">리뷰제목</th>
+          <th scope="col">작성시간</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for review in reviews %}
+        <tr class="table-info title">
+          <td>{{ review.id }}</td>
+          <td>
+            <a href="{% url 'reviews:detail' review.pk %}">
+              {{ review.title }}</a>
+          </td>
+          <td>{{ review.created_at }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
